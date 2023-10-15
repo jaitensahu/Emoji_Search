@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Tilt+Neon&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Tilt Neon', sans-serif;
+}
+
+.container {
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    width: 100%;
+    height: fit-content;
+    border-bottom: 2px solid white;
+    padding: 20px 0;
+    color: aliceblue;
+}
+
+.mid {
+    width: 100%;
+    height: fit-content;
+    padding: 20px 0;
+    color: aliceblue;
+}
+.mid input{
+    width: 30%;
+    padding: 10px;
+}
+.mid button{
+    background-color: aliceblue;
+    color: black;
+    padding: 10px;
+    border: none;
+}
+.bottom {
+    width: 100%;
+    height: 80%
+}
+
+tbody tr{
+    width: 100%;
+    border-bottom: 2px solid white;
+}
+tbody{
+    width: 100%;
+}
+table{
+    border-collapse: collapse;
+    /* border-bottom: 2px solid white; */
+}
+td{
+    color: white;
+}

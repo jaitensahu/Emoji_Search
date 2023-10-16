@@ -3,36 +3,33 @@ let button = document.querySelector("button");
 let tableBody = document.querySelector("tbody");
 let ans = [];
 let finalArr = [];
+let trArray = [];
 srch.addEventListener("input", () => {
   finalArr.splice(0);
-  let newArrr = emojiList.map((val) => {
-    let ans = val["tags"].filter((element) => {
+  trArray.splice(0);
+  emojiList.forEach((val) => {
+    val["aliases"].filter((element) => {
       if (element.search(srch.value) > -1) {
-        return val;
+        replacedata(val);
       }
     });
-    if (ans.length > 0) {
-    //   return ans;
-// console.log(ans);
-    }
   });
-  newArrr.forEach((ele) => {
-    if (ele != undefined) {
-      finalArr.push(ele);
-    }
-  });
-
-  replacedata(finalArr);
+  console.log(...trArray);
+  tableBody.replaceChildren(...trArray);
 });
-function replacedata(newArray) {
-  newArray.forEach((val) => {
-    console.log(val);
-    // let tr = document.createElement("tr");
-    // tr.innerHTML = `<td>${val["emoji"]}</td>
-    //                   <td>${val["description"]}</td>
-    //                   <td>${val["ios_version"]}</td>`;
-    // tableBody.appendChild(tr);
-  });
 
-  //  console.log(tableBody.find(tr));
+function replacedata(obj) {
+  let tr = document.createElement("tr");
+  tr.innerHTML = `<td>${obj["emoji"]}</td>
+                      <td>${obj["aliases"]}</td>
+                      <td>${obj["description"]}</td>`;
+  trArray.push(tr);
 }
+
+emojiList.forEach((val) => {
+  let tr = document.createElement("tr");
+  tr.innerHTML = `<td>${val["emoji"]}</td>
+                    <td>${val["aliases"]}</td>
+                    <td>${val["description"]}</td>`;
+  tableBody.appendChild(tr);
+});
